@@ -1,0 +1,200 @@
+﻿ <Controls:MetroWindow x:Class="Tunity.Develop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:loadin="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
+        xmlns:tb="http://www.hardcodet.net/taskbar" 
+        xmlns:td="clr-namespace:Tunity.Develop"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tunity developer" Height="600" Width="800"
+                       BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1">
+     
+    <Controls:MetroWindow.Resources>
+        <CollectionViewSource x:Key="ActiveDBList" Source="{Binding SCDBs}" Filter="CollectionViewSource_Filter" />
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="settings" Header="Settings" Theme="Accent" Position="Right" Width="400">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Github project directory:" />
+                    <TextBox Grid.Row="3" Grid.Column="0" x:Name="githubDirTextBox" Loaded="githubDirTextBox_Loaded"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Starcounter db directory:" />
+                    <TextBox Grid.Row="1" Grid.Column="0" x:Name="databaseDirTextBox" Loaded="databaseTextBox_Loaded"/>
+                    <Button x:Name="saveSettings" IsDefault="True"  Margin="10" Grid.Row="4" Grid.Column="0" Content="Save settings" Click="saveSettings_Click"></Button>
+                </Grid>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <Controls:MetroWindow.RightWindowCommands>  
+        <Controls:WindowCommands>
+            <Button Content="settings" Click="Button_Click_2" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="ApplicationsTab" Header="Applications">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox IsReadOnly="True" Grid.Column="1" Grid.RowSpan="3" x:Name="consoleOutput" />
+                    <StackPanel  Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label Margin="5" Content="Database:"></Label>
+                        <ComboBox Width="200" Margin="5" SelectionChanged="DatabaseChooser_SelectionChanged"  x:Name="DatabaseChooser" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <DataGrid SelectionMode="Single" ItemsSource="{Binding SCApps, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" x:Name="datagrid" AutoGenerateColumns="False" CanUserAddRows="false">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Running}" Value="True">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Resources>
+                            <ResourceDictionary>
+                                <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{x:Null}" />
+                                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <td:ConditionalStringConverter x:Key="ConditionalString" />
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Running}" Value="True">
+                                            <Setter Property="Background" Value="LawnGreen"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Starting}" Value="True">
+                                            <Setter Property="Visibility" Value="Hidden"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ResourceDictionary>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                      EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                      Header="Include app"
+                      Binding="{Binding Path=Checked, UpdateSourceTrigger=PropertyChanged}"
+                 >
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style>
+                                        <EventSetter x:Name="checkbox" Event="CheckBox.Checked" Handler="checkbox_onChecked"/>
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTemplateColumn  Header="Tools" Width="80">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Button Click="Button_Click_1" IsEnabled="{Binding Path=Enabled}"  Content="{Binding Path=Running, Converter={StaticResource ConditionalString}, ConverterParameter=Restart;Start}" />
+                                            <Controls:ProgressRing Width="20" Height="20" IsActive="True">
+                                                <Controls:ProgressRing.Style>
+                                                    <Style TargetType="Controls:ProgressRing">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Starting}" Value="False">
+                                                                <Setter Property="Visibility" Value="Hidden"></Setter>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Controls:ProgressRing.Style>
+                                            </Controls:ProgressRing>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="restartAllButton" Grid.Column="0" Grid.Row="2" Content="Restart applications" Click="Button_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="DatabasesTab" Header="Databases">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox IsReadOnly="True" Grid.Column="1" x:Name="dOutput" />
+                    <DataGrid SelectionMode="Single" DataContext="{Binding RelativeSource={RelativeSource AncestorType=Controls:MetroWindow}}"
+                         Grid.Column="0" Grid.Row="0" ItemsSource="{Binding SCDBs}" x:Name="databasesgrid" AutoGenerateColumns="False" CanUserAddRows="false">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Running}" Value="True">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="60" Header="Valid" Binding="{Binding Valid}"></DataGridTextColumn>
+                            <DataGridTemplateColumn  Header="Tools" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button x:Name="DatabaseExport" Margin="3"  Grid.Column="0" IsEnabled="{Binding Path=Valid}" ToolTip="Export DB" Content="Export" Click="DatabaseExport_Click" ></Button>
+                                            <Button x:Name="StopDB" Margin="3" Grid.Column="2" IsEnabled="{Binding Path=Running}" Content="Stop" ToolTip="Stop DB" Click="StopDB_Click"></Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="0" Grid.Row="1" x:Name="Import" Content="Import database" Click="Import_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>
