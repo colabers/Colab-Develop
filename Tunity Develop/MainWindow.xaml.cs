@@ -62,6 +62,11 @@ namespace Tunity.Develop
                 ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Notifications\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
+                Name = "Tunity_Assets", 
+                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Assets\bin\Debug\tunity_assets.exe",
+                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Assets\Client;{CommonClientDir}",
+            }, 
+            new StarcounterApp() { 
                 Name = "Tunity_Documents", 
                 AppPath = @"{GitHubDir}\Tunity-3\Tunity.Documents\bin\Debug\tunity_documents.exe",
                 ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Documents\Client;{CommonClientDir}",
