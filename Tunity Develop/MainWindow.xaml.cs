@@ -879,7 +879,7 @@ namespace Tunity.Develop
                 {
                     SCDBs.Add(app);
                     dOutput.Text += String.Format("Import complete!\n");
-                    ((CollectionViewSource)this.Resources["ActiveDBList"]).View.Refresh();
+                    //((CollectionViewSource)this.Resources["ActiveDBList"]).View.Refresh();
                     //ActiveDBList.View.Refresh();
                 }));
             }

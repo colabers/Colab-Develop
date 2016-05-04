@@ -256,7 +256,7 @@ namespace Tunity.Develop
 
         private string chunksNumberField;
 
-        private string schedulerCountField;
+        private object schedulerCountField;
 
         /// <remarks/>
         public bool LoadEditionLibraries
@@ -428,7 +428,8 @@ namespace Tunity.Develop
         }
 
         /// <remarks/>
-        public string SchedulerCount
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
+        public object SchedulerCount
         {
             get
             {
