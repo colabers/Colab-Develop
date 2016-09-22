@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Hardcodet.Wpf.TaskbarNotification;
 
-namespace Tunity.Develop
+namespace Colab.Develop
 {
     /// <summary>
     /// Interaction logic for App.xaml

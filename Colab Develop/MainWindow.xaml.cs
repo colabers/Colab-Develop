@@ -22,7 +22,7 @@ using System.Threading;
 using Microsoft.Win32;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace Tunity.Develop
+namespace Colab.Develop
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -30,7 +30,7 @@ namespace Tunity.Develop
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
 
-        public static String CommonClientDir = @"{GitHubDir}\Tunity-3\Tunity.Common\Client";
+        public static String CommonClientDir = @"{GitHubDir}\Tunity-3\Colab.Common\Client";
 
         private ObservableCollection<StarcounterDB> _SCDBs = new ObservableCollection<StarcounterDB>();
 
@@ -52,50 +52,66 @@ namespace Tunity.Develop
                 ResourceDirs = @"{GitHubDir}\SignIn\src\SignIn\wwwroot;{CommonClientDir}",
             },
             new StarcounterApp() { 
-                Name = "Tunity_Users", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.UserManagement\bin\Debug\tunity_users.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.UserManagement\Client;{CommonClientDir}",
+                Name = "Colab_Users", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.UserManagement\bin\Debug\colab_users.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.UserManagement\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
-                Name = "Tunity_Notifications", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Notifications\bin\Debug\tunity_notifications.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Notifications\Client;{CommonClientDir}",
+                Name = "Colab_Notifications", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Notifications\bin\Debug\colab_notifications.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Notifications\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
-                Name = "Tunity_Assets", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Assets\bin\Debug\tunity_assets.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Assets\Client;{CommonClientDir}",
+                Name = "Colab_Assets", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Assets\bin\Debug\colab_assets.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Assets\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
-                Name = "Tunity_Documents", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Documents\bin\Debug\tunity_documents.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Documents\Client;{CommonClientDir}",
+                Name = "Colab_Documents", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Documents\bin\Debug\colab_documents.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Documents\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
-                Name = "Tunity_Organizer", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Organizer\bin\Debug\tunity_organizer.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Organizer\Client;{CommonClientDir}",
+                Name = "Colab_Organizer", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Organizer\bin\Debug\colab_organizer.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Organizer\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
-                Name = "Tunity_ActionBoard", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.ActionBoard\bin\Debug\tunity_actionboard.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.ActionBoard\Client;{CommonClientDir}",
+                Name = "Colab_ActionBoard", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.ActionBoard\bin\Debug\colab_actionboard.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.ActionBoard\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
-                Name = "Tunity_Chatter", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Chatter\bin\Debug\tunity_chatter.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Chatter\Client;{CommonClientDir}",
+                Name = "Colab_Chatter", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Chatter\bin\Debug\colab_chatter.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Chatter\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
-                Name = "Tunity_Terminal", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Terminal\bin\Debug\tunity_terminal.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Terminal\Client;{CommonClientDir}",
+                Name = "Colab_Terminal", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Terminal\bin\Debug\colab_terminal.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Terminal\Client;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Colab_Flowchart",
+                AppPath = @"{GitHubDir}\Colab-3\Colab.FlowChart\bin\Debug\colab_flowchart.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.FlowChart\Client;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Colab_QueryBuilder",
+                AppPath = @"{GitHubDir}\Colab-3\Colab.QueryBuilder\bin\Debug\colab_querybuilder.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.QueryBuilder\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
-                Name = "Tunity_Orders", 
-                AppPath = @"{GitHubDir}\Tunity-3\Tunity.Orders\bin\Debug\tunity_orders.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Tunity.Orders\Client;{CommonClientDir}",
-            },   
+                Name = "Colab_Orders", 
+                AppPath = @"{GitHubDir}\Colab-3\Colab.Orders\bin\Debug\colab_orders.exe",
+                ResourceDirs = @"{GitHubDir}\Colab-3\Colab.Orders\Client;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Cookie_consent",
+                AppPath = @"{GitHubDir}\CookieConsent\src\CookieConsent\bin\Debug\CookieConsent.exe",
+                ResourceDirs = @"{GitHubDir}\CookieConsent\src\CookieConsent\wwwroot",
+            },
+
         };
 
         private readonly StarcounterApp StopDBApp = new StarcounterApp()

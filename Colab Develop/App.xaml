@@ -1,4 +1,4 @@
-﻿<Application x:Class="Tunity.Develop.App"
+﻿<Application x:Class="Colab.Develop.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Startup="Application_Startup"

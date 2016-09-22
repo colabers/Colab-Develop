@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 
-namespace Tunity.Develop
+namespace Colab.Develop
 {
     /// <summary>
     /// Provides bindable properties and commands for the NotifyIcon. In this sample, the

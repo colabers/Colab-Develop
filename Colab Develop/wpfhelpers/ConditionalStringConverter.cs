@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Data;
 
-namespace Tunity.Develop
+namespace Colab.Develop
 {
     // This returns true if sale is on or above targe, otherwise false
     public class ConditionalStringConverter : IValueConverter

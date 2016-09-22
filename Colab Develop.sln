@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tunity Develop", "Tunity Develop\Tunity Develop.csproj", "{E0FBE6C7-B12A-40E2-B48E-4E82D8807BF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colab Develop", "Colab Develop\Colab Develop.csproj", "{E0FBE6C7-B12A-40E2-B48E-4E82D8807BF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

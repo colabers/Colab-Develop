@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace Tunity.Develop
+namespace Colab.Develop
 {
     public class StarcounterApp : INotifyPropertyChanged
     {

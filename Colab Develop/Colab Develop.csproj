@@ -7,8 +7,8 @@
     <ProjectGuid>{E0FBE6C7-B12A-40E2-B48E-4E82D8807BF5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tunity.Develop</RootNamespace>
-    <AssemblyName>Tunity Develop</AssemblyName>
+    <RootNamespace>Colab.Develop</RootNamespace>
+    <AssemblyName>Colab Develop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,10 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Tunity.Develop.App</StartupObject>
+    <StartupObject>Colab.Develop.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>tunity.ico</ApplicationIcon>
+    <ApplicationIcon>colab.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -151,7 +151,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="tunity.ico" />
+    <Resource Include="colab.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
