@@ -37,7 +37,7 @@
     <StartupObject>Colab.Develop.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>colab.ico</ApplicationIcon>
+    <ApplicationIcon>colabers_purple.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -151,7 +151,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="colab.ico" />
+    <Resource Include="colabers_purple.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

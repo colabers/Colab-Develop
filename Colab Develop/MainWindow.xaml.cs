@@ -30,7 +30,7 @@ namespace Colab.Develop
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
 
-        public static String CommonClientDir = @"{GitHubDir}\Tunity-3\Colab.Common\Client";
+        public static String CommonClientDir = @"{GitHubDir}\Colab\Colab.Common\Client";
 
         private ObservableCollection<StarcounterDB> _SCDBs = new ObservableCollection<StarcounterDB>();
 
@@ -53,58 +53,58 @@ namespace Colab.Develop
             },
             new StarcounterApp() { 
                 Name = "Colab_Users", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.UserManagement\bin\Debug\colab_users.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.UserManagement\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.UserManagement\bin\Debug\colab_users.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.UserManagement\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Notifications", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Notifications\bin\Debug\colab_notifications.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Notifications\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Notifications\bin\Debug\colab_notifications.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Notifications\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
                 Name = "Colab_Assets", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Assets\bin\Debug\colab_assets.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Assets\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Assets\bin\Debug\colab_assets.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Assets\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
                 Name = "Colab_Documents", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Documents\bin\Debug\colab_documents.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Documents\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Documents\bin\Debug\colab_documents.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Documents\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
                 Name = "Colab_Organizer", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Organizer\bin\Debug\colab_organizer.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Organizer\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Organizer\bin\Debug\colab_organizer.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Organizer\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_ActionBoard", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.ActionBoard\bin\Debug\colab_actionboard.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.ActionBoard\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.ActionBoard\bin\Debug\colab_actionboard.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.ActionBoard\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Chatter", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Chatter\bin\Debug\colab_chatter.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Chatter\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Chatter\bin\Debug\colab_chatter.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Chatter\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
                 Name = "Colab_Terminal", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Terminal\bin\Debug\colab_terminal.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Terminal\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Terminal\bin\Debug\colab_terminal.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Terminal\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Colab_Flowchart",
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.FlowChart\bin\Debug\colab_flowchart.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.FlowChart\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.FlowChart\bin\Debug\colab_flowchart.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.FlowChart\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Colab_QueryBuilder",
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.QueryBuilder\bin\Debug\colab_querybuilder.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.QueryBuilder\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.QueryBuilder\bin\Debug\colab_querybuilder.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.QueryBuilder\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Orders", 
-                AppPath = @"{GitHubDir}\Tunity-3\Colab.Orders\bin\Debug\colab_orders.exe",
-                ResourceDirs = @"{GitHubDir}\Tunity-3\Colab.Orders\Client;{CommonClientDir}",
+                AppPath = @"{GitHubDir}\Colab\Colab.Orders\bin\Debug\colab_orders.exe",
+                ResourceDirs = @"{GitHubDir}\Colab\Colab.Orders\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Cookie_consent",
