@@ -114,8 +114,8 @@ namespace Colab.Develop
         {
             if (String.IsNullOrEmpty(_customparameters))
             {
-                var rd = ResourceDirs.Replace("{CommonClientDir}", MainWindow.CommonClientDir).Replace("{GitHubDir}", Properties.Settings.Default.GitHubDir);
-                var ap = AppPath.Replace("{CommonClientDir}", MainWindow.CommonClientDir).Replace("{GitHubDir}", Properties.Settings.Default.GitHubDir);
+                var rd = ResourceDirs.Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
+                var ap = AppPath.Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
                 return String.Format("-d={0} --resourcedir=\"{1}\" \"{2}\"", database, rd, ap);
             }
             else

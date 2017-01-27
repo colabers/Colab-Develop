@@ -19,7 +19,7 @@ namespace Colab.Develop
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
-            notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
+          //  notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
         
         }
 
@@ -31,7 +31,7 @@ namespace Colab.Develop
 
         protected override void OnExit(ExitEventArgs e)
         {
-            notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+           // notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
             base.OnExit(e);
         }
     }

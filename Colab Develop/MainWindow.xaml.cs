@@ -30,7 +30,7 @@ namespace Colab.Develop
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
 
-        public static String CommonClientDir = @"{GitHubDir}\Colab\Colab.Common\Client";
+        public static String CommonClientDir = @"$GitHubDir$\Colab\Colab.Common\Client";
 
         private ObservableCollection<StarcounterDB> _SCDBs = new ObservableCollection<StarcounterDB>();
 
@@ -43,73 +43,73 @@ namespace Colab.Develop
         public List<StarcounterApp> SCApps = new List<StarcounterApp>(){
             new StarcounterApp() { 
                 Name = "Launcher", 
-                AppPath = @"{GitHubDir}\Launcher\bin\Debug\Launcher.exe",
-                ResourceDirs = @"{GitHubDir}\Launcher\src\Launcher\wwwroot",
+                AppPath = @"$GitHubDir$\Launcher\bin\Debug\Launcher.exe",
+                ResourceDirs = @"$GitHubDir$\Launcher\src\Launcher\wwwroot",
             },
             new StarcounterApp() { 
                 Name = "SignIn", 
-                AppPath = @"{GitHubDir}\SignIn\bin\Debug\SignIn.exe",
-                ResourceDirs = @"{GitHubDir}\SignIn\src\SignIn\wwwroot;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\SignIn\bin\Debug\SignIn.exe",
+                ResourceDirs = $@"$GitHubDir$\SignIn\src\SignIn\wwwroot;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Users", 
-                AppPath = @"{GitHubDir}\Colab\Colab.UserManagement\bin\Debug\colab_users.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.UserManagement\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.UserManagement\bin\Debug\colab_users.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.UserManagement\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Notifications", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Notifications\bin\Debug\colab_notifications.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Notifications\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Notifications\bin\Debug\colab_notifications.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Notifications\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
                 Name = "Colab_Assets", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Assets\bin\Debug\colab_assets.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Assets\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Assets\bin\Debug\colab_assets.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Assets\Client;{CommonClientDir}",
             }, 
             new StarcounterApp() { 
                 Name = "Colab_Documents", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Documents\bin\Debug\colab_documents.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Documents\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Documents\bin\Debug\colab_documents.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Documents\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
                 Name = "Colab_Organizer", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Organizer\bin\Debug\colab_organizer.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Organizer\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Organizer\bin\Debug\colab_organizer.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Organizer\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_ActionBoard", 
-                AppPath = @"{GitHubDir}\Colab\Colab.ActionBoard\bin\Debug\colab_actionboard.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.ActionBoard\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.ActionBoard\bin\Debug\colab_actionboard.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.ActionBoard\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Chatter", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Chatter\bin\Debug\colab_chatter.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Chatter\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Chatter\bin\Debug\colab_chatter.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Chatter\Client;{CommonClientDir}",
             },   
             new StarcounterApp() { 
                 Name = "Colab_Terminal", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Terminal\bin\Debug\colab_terminal.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Terminal\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Terminal\bin\Debug\colab_terminal.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Terminal\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Colab_Flowchart",
-                AppPath = @"{GitHubDir}\Colab\Colab.FlowChart\bin\Debug\colab_flowchart.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.FlowChart\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.FlowChart\bin\Debug\colab_flowchart.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.FlowChart\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Colab_QueryBuilder",
-                AppPath = @"{GitHubDir}\Colab\Colab.QueryBuilder\bin\Debug\colab_querybuilder.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.QueryBuilder\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.QueryBuilder\bin\Debug\colab_querybuilder.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.QueryBuilder\Client;{CommonClientDir}",
             },
             new StarcounterApp() { 
                 Name = "Colab_Orders", 
-                AppPath = @"{GitHubDir}\Colab\Colab.Orders\bin\Debug\colab_orders.exe",
-                ResourceDirs = @"{GitHubDir}\Colab\Colab.Orders\Client;{CommonClientDir}",
+                AppPath = @"$GitHubDir$\Colab\Colab.Orders\bin\Debug\colab_orders.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Orders\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Cookie_consent",
-                AppPath = @"{GitHubDir}\CookieConsent\src\CookieConsent\bin\Debug\CookieConsent.exe",
-                ResourceDirs = @"{GitHubDir}\CookieConsent\src\CookieConsent\wwwroot",
+                AppPath = @"$GitHubDir$\CookieConsent\src\CookieConsent\bin\Debug\CookieConsent.exe",
+                ResourceDirs = $@"$GitHubDir$\CookieConsent\src\CookieConsent\wwwroot",
             },
 
         };
@@ -471,6 +471,7 @@ namespace Colab.Develop
                                                RunWorkerCompletedEventArgs e)
         {
             restartAllButton.IsEnabled = true;
+            stopAllButton.IsEnabled = true;
         }
 
         private String GetSelectedDatabaseString(Boolean verbose = true)
@@ -512,6 +513,25 @@ namespace Colab.Develop
                 app.Enabled = false;
                 AppsToStart.Enqueue(new StartAppData() { App = app, Database = database });
             }
+            worker.RunWorkerAsync();
+        }
+
+        private void StopAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            var database = GetSelectedDatabaseString();
+            if (String.IsNullOrEmpty(database))
+                return;
+
+            consoleOutput.Text = "";
+            stopAllButton.IsEnabled = false;
+            if (worker.IsBusy)
+            {
+                worker.CancelAsync();
+            }
+            StartAppData dummy;
+            while (AppsToStart.TryDequeue(out dummy)) { }
+            AppsToStart.Enqueue(new StartAppData() { App = StopDBApp, Database = database });
+            SetAllApps("Running", false);
             worker.RunWorkerAsync();
         }
 
@@ -952,6 +972,8 @@ namespace Colab.Develop
             }
             UpdateRunningApps(); 
         }
+
+
     }
 
     public class StartAppData

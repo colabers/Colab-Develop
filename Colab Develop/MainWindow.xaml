@@ -148,7 +148,17 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="restartAllButton" Grid.Column="0" Grid.Row="2" Content="Restart applications" Click="Button_Click" />
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="restartAllButton" Grid.Column="0" Grid.Row="0" Content="Restart applications" Click="Button_Click" />
+                       <Button x:Name="stopAllButton" Grid.Column="1" Grid.Row="0" Content="Stop server" Click="StopAllButton_Click" />
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem x:Name="DatabasesTab" Header="Databases">
