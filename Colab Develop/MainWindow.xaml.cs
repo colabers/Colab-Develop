@@ -151,8 +151,14 @@ namespace Colab.Develop
                 AppPath = @"$GitHubDir$\CookieConsent\src\CookieConsent\bin\Debug\CookieConsent.exe",
                 ResourceDirs = $@"$GitHubDir$\CookieConsent\src\CookieConsent\wwwroot",
             },
+				new StarcounterApp() {
+				Name = "Colab_Mobile",
+				AppPath = @"$GitHubDir$\Colab\Colab.Mobile\bin\Debug\colab_mobile.exe",
+				ResourceDirs = $@"{CommonClientDir}",
+				//ResourceDirs = $@"$GitHubDir$\CookieConsent\src\CookieConsent\wwwroot",
+			},
 
-        };
+		};
 
         private readonly StarcounterApp StopDBApp = new StarcounterApp()
         {
