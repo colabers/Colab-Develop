@@ -41,14 +41,44 @@ namespace Colab.Develop
         }
 
         public List<StarcounterApp> SCApps = new List<StarcounterApp>(){
-            new StarcounterApp() { 
-                Name = "Launcher", 
-                AppPath = @"$GitHubDir$\Launcher\bin\Debug\Launcher.exe",
-                ResourceDirs = @"$GitHubDir$\Launcher\src\Launcher\wwwroot",
+             new StarcounterApp() {
+                Name = "WebsiteProvider",
+                AppPath = @"$GitHubDir$\Website\src\WebsiteProvider\bin\Debug\WebsiteProvider.exe",
+                ResourceDirs = @"$GitHubDir$\Website\src\WebsiteProvider\wwwroot",
+            },
+            new StarcounterApp() {
+                Name = "Website",
+                AppPath = @"$GitHubDir$\Website\src\Website\bin\Debug\Website.exe",
+                ResourceDirs = @"$GitHubDir$\Website\src\Website\wwwroot",
+            },
+            new StarcounterApp() {
+                Name = "CompositionProvider",
+                AppPath = @"$GitHubDir$\CompositionProvider\src\CompositionProvider\bin\Debug\CompositionProvider.exe",
+                ResourceDirs = @"$GitHubDir$\CompositionProvider\src\CompositionProvider\wwwroot",
+            },
+            new StarcounterApp() {
+                Name = "CompositionEditor",
+                AppPath = @"$GitHubDir$\CompositionEditor\src\CompositionEditor\bin\Debug\CompositionEditor.exe",
+                ResourceDirs = @"$GitHubDir$\CompositionEditor\src\CompositionEditor\wwwroot",
             },
             new StarcounterApp() { 
-                Name = "SignIn", 
+                Name = "Colab_Website", 
+                AppPath = @"$GitHubDir$\\Colab\Colab.Website\bin\Debug\Colab_website.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Website\Client;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Launcher",
+                AppPath = @"$GitHubDir$\Launcher\bin\Debug\Launcher.exe",
+                ResourceDirs = $@"$GitHubDir$\Launcher\src\Launcher\wwwroot",
+            },
+            new StarcounterApp() {
+                Name = "SignIn",
                 AppPath = @"$GitHubDir$\SignIn\bin\Debug\SignIn.exe",
+                ResourceDirs = $@"$GitHubDir$\SignIn\src\SignIn\wwwroot;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Colab_SignIn",
+                AppPath = @"$GitHubDir$\Colab\Colab.SignIn\bin\Debug\Colab_SignIn.exe",
                 ResourceDirs = $@"$GitHubDir$\SignIn\src\SignIn\wwwroot;{CommonClientDir}",
             },
             new StarcounterApp() { 
@@ -105,6 +135,16 @@ namespace Colab.Develop
                 Name = "Colab_Orders", 
                 AppPath = @"$GitHubDir$\Colab\Colab.Orders\bin\Debug\colab_orders.exe",
                 ResourceDirs = $@"$GitHubDir$\Colab\Colab.Orders\Client;{CommonClientDir}",
+            },
+            new StarcounterApp() {
+                Name = "Colab_Forms",
+                AppPath = @"$GitHubDir$\Colab\Colab.Forms\bin\Debug\colab_forms.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Forms\Client;{CommonClientDir}",
+            },
+             new StarcounterApp() {
+                Name = "Colab_Mobile",
+                AppPath = @"$GitHubDir$\Colab\Colab.Mobile\bin\Debug\colab_mobile.exe",
+                ResourceDirs = $@"$GitHubDir$\Colab\Colab.Mobile\Client;{CommonClientDir}",
             },
             new StarcounterApp() {
                 Name = "Cookie_consent",
@@ -532,7 +572,8 @@ namespace Colab.Develop
             while (AppsToStart.TryDequeue(out dummy)) { }
             AppsToStart.Enqueue(new StartAppData() { App = StopDBApp, Database = database });
             SetAllApps("Running", false);
-            worker.RunWorkerAsync();
+            if (!worker.IsBusy)
+                worker.RunWorkerAsync();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
