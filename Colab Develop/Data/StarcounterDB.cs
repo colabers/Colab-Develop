@@ -35,7 +35,7 @@ namespace Colab.Develop
         {
             get
             {
-                return ConfigurationPath + String.Format(@"\{0}.db.config", Name);
+                return ConfigurationPath + $@"\{Name}.db.config";
             }
         }
         public void SaveConfiguration()
@@ -88,10 +88,12 @@ namespace Colab.Develop
         {
             get
             {
+                return true;
+                /*
                 return ((_configuration != null) &&
                 Directory.Exists(_configuration.Runtime.TempDirectory) &&
                 Directory.Exists(_configuration.Runtime.TransactionLogDirectory) &&
-                Directory.Exists(_configuration.Runtime.ImageDirectory));
+                Directory.Exists(_configuration.Runtime.ImageDirectory));*/
             }
         }
 
@@ -120,9 +122,15 @@ namespace Colab.Develop
 
                 _running = value;
                 OnPropertyChanged("Running");
+                OnPropertyChanged("Stopped");
             }
         }
 
+        //Just for easier binding
+        public Boolean Stopped
+        {
+            get { return !_running; }
+        }
 
         private Boolean _exporting;
         public Boolean Exporting

@@ -14,7 +14,7 @@ namespace Colab.Develop
     /// </summary>
     partial class App : Application
     {
-        private TaskbarIcon notifyIcon;
+       // private TaskbarIcon notifyIcon;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {

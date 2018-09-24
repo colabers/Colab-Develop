@@ -4,18 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.IO;
 
 namespace Colab.Develop
 {
-    public class StarcounterApp : INotifyPropertyChanged
+    public class GenericApp : IApp
     {
-        public StarcounterApp()
+        public GenericApp()
         {
             Enabled = true;
             Checked = false;
             Running = false;
             Starting = false;
         }
+
+        public Boolean Required { get; set; }
 
         private String _name;
         public String Name
@@ -88,46 +91,65 @@ namespace Colab.Develop
             }
         }
 
-        public String AppPath { get; set; }
-        public String ResourceDirs { get; set; }
 
 
+        public static bool ExistsOnPath(string fileName)
+        {
+            if (File.Exists(fileName))
+                return true;
+
+            var values = Environment.GetEnvironmentVariable("PATH");
+            foreach (var path in values.Split(';'))
+            {
+                var fullPath = Path.Combine(path, fileName);
+                if (File.Exists(fullPath))
+                    return true;
+            }
+            return false;
+        }
+
+
+        public Boolean Valid => String.IsNullOrEmpty(IsValid());
+        public String ValidError => IsValid();
+
+        public virtual String IsValid()
+        {
+            if (!ExistsOnPath(Executable))
+            {
+                return $"{Executable} can not be found!";
+            }
+            return null;
+        }
 
         private String _executable;
-        public String Executable
+        public virtual String Executable
         {
             get
             {
-                if (String.IsNullOrEmpty(_executable))
-                {
-                    return "star";
-                }
-                else
-                {
-                    return _executable;
-                }
+                return _executable.Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
             }
-            set { _executable = value; }
-        }
-
-        public String GetParameters(String database)
-        {
-            if (String.IsNullOrEmpty(_customparameters))
+            set
             {
-                var rd = ResourceDirs.Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
-                var ap = AppPath.Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
-                return String.Format("-d={0} --resourcedir=\"{1}\" \"{2}\"", database, rd, ap);
+                if (value == _executable)
+                    return;
+
+                _executable = value;
+                OnPropertyChanged("Executable");
+                OnPropertyChanged("Valid");
+                OnPropertyChanged("ValidError");
             }
-            else
-                return _customparameters.Replace("{Database}", database);
         }
 
-        private String _customparameters;
-        public String CustomParameters
+        public virtual String GetParsedParameters(String database)
         {
-
-            set { _customparameters = value; }
+            if (!String.IsNullOrEmpty(Parameters))
+            {
+                return Parameters.Replace("{Database}", database).Replace("$GitHubDir$", Properties.Settings.Default.GitHubDir);
+            }
+            return "";
         }
+
+        public String Parameters { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

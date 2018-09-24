@@ -19,7 +19,7 @@
                     <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingPulse.xaml"/>
                     <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingDoubleBounce.xaml"/>
                  <!--   <ResourceDictionary Source="/Resources/Icons.xaml" />-->
-                    <ResourceDictionary Source="NotifyIcon.xaml" />
+                    <ResourceDictionary Source="SystemTray/NotifyIcon.xaml" />
             </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Application.Resources>
