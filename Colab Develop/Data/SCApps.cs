@@ -57,6 +57,10 @@ namespace Colab.Develop
                 Executable = @"$GitHubDir$\Buildcraft.Framework\run.bat",
             },
             new GenericApp() {
+                Name = "BIMProjects",
+                Executable = @"$GitHubDir$\BIMProjects\run.bat",
+            },
+            new GenericApp() {
                 Name = "Colab_Chatter",
                 Executable = @"$GitHubDir$\Colab.Chatter\run_develop.bat",
             },

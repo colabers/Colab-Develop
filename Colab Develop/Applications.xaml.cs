@@ -107,9 +107,17 @@ namespace Colab.Develop
                         {
                             var doc = consoleOutput.Document;
                             Paragraph para = new Paragraph();
+                            bool skipnext = false;
                             foreach (var line in output)
                             {
-                                para.Inlines.Add(new Run(line));
+                                if (line.Contains("info") || line.StartsWith(":")) //Fix for stupid SC messages
+                                {
+                                    skipnext = true;
+                                    continue;
+                                }
+                                if (!skipnext)
+                                    para.Inlines.Add(new Run(line));
+                                skipnext = false;
                             }
                             doc.Blocks.Add(para);
                         });
