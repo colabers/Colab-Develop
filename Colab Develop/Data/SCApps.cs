@@ -22,31 +22,27 @@ namespace Colab.Develop
             },
             new GenericApp() {
                 Name = "Blending",
-                Executable = @"$GitHubDir$\Blending.Mapper\Blending\run.bat",
+                Executable = @"$GitHubDir$\Blending\run.bat",
             },
             new GenericApp() {
                 Name = "SignIn",
-                Executable = @"$GitHubDir$\SignIn.Mapper\SignIn\run.bat",
+                Executable = @"$GitHubDir$\SignIn\run.bat",
             },
             new GenericApp() {
                 Name = "UserAdmin",
-                Executable = @"$GitHubDir$\UserAdmin.Mapper\UserAdmin\run.bat"
+                Executable = @"$GitHubDir$\UserAdmin\run.bat"
             },
             new GenericApp() {
                 Name = "People",
-                Executable = @"$GitHubDir$\People.Mapper\People\run.bat",
+                Executable = @"$GitHubDir$\People\run.bat",
             },
             new GenericApp() {
                 Name = "DogFood",
                 Executable = @"$GitHubDir$\DogFoodSB\run.bat",
             },
-             new GenericApp() {
-                Name = "Github",
-                Executable = @"$GitHubDir$\GithubWrapper.Mapper\GithubWrapper\run.bat",
-            },
             new GenericApp() {
                 Name = "Images",
-                Executable = @"$GitHubDir$\Images.Mapper\Images\run.bat",
+                Executable = @"$GitHubDir$\Images\run.bat",
             },
             new GenericApp() {
                 Name = "Colab_Website",
@@ -79,6 +75,10 @@ namespace Colab.Develop
             new GenericApp() {
                 Name = "Colab_ResourceAllocator",
                 Executable = @"$GitHubDir$\Colab.ResourceAllocator\run_develop.bat",
+            },
+            new GenericApp() {
+                Name = "Colab_Github",
+                Executable = @"$GitHubDir$\Colab.GithubWrapper\run.bat",
             },
             new GenericApp() {
                 Name = "Colab_DBTools",
